@@ -15,6 +15,17 @@ public class Inventory: ScriptableObject
 		get { return items; }
 	}
 
+	public int Count
+	{
+		get { return items.Count; }
+	}
+
+	public int Capacity
+	{
+		get { return items.Capacity; }
+		set { items.Capacity = value; }
+	}
+
 	/// <summary>
 	/// Adds the item stack to the existing stack, or creates a new stack
 	/// </summary>
