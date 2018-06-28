@@ -105,6 +105,9 @@ public class Inventory: ScriptableObject
 		if(iStack)
 		{
 			iStack--;
+
+			if(iStack.Amount <= 0)
+				items.Remove(iStack);
 		}
 	}
 
@@ -120,6 +123,9 @@ public class Inventory: ScriptableObject
 		if(iStack)
 		{
 			iStack.Amount -= amount;
+
+			if(iStack.Amount <= 0)
+				items.Remove(iStack);
 		}
 	}
 
@@ -135,6 +141,9 @@ public class Inventory: ScriptableObject
 		if(iStack)
 		{
 			iStack.Amount -= item.Amount;
+
+			if(iStack.Amount <= 0)
+				items.Remove(iStack);
 		}
 	}
 
