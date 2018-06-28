@@ -39,6 +39,29 @@ public class Inventory: ScriptableObject
 
 	/// <summary>
 	/// Adds the item stack to the existing stack, or creates a new stack
+	/// </summary>
+	/// <param name="item"></param>
+	/// <param name="amount"></param>
+	/// <returns>The Added or Modified Stack</returns>
+	public ItemStack Add(Item item, int amount)
+	{
+		var iStack = FindStack(item);
+
+		if(iStack)
+		{
+			iStack += amount;
+
+			return iStack;
+		}
+
+		var stack = new ItemStack(item, amount);
+		items.Add(stack);
+
+		return stack;
+	}
+
+	/// <summary>
+	/// Adds the item stack to the existing stack, or creates a new stack
 	/// It adds the Amount of the stack as well
 	/// </summary>
 	/// <param name="item"></param>
@@ -58,6 +81,50 @@ public class Inventory: ScriptableObject
 		items.Add(stack);
 
 		return stack;
+	}
+
+	/// <summary>
+	/// Adds the item stack to the existing stack, or creates a new stack
+	/// </summary>
+	/// <param name="item"></param>
+	public void Remove(Item item)
+	{
+		var iStack = FindStack(item);
+
+		if(iStack)
+		{
+			iStack--;
+		}
+	}
+
+	/// <summary>
+	/// Adds the item stack to the existing stack, or creates a new stack
+	/// </summary>
+	/// <param name="item"></param>
+	/// <param name="amount"></param>
+	public void Remove(Item item, int amount)
+	{
+		var iStack = FindStack(item);
+
+		if(iStack)
+		{
+			iStack.Amount -= amount;
+		}
+	}
+
+	/// <summary>
+	/// Adds the item stack to the existing stack, or creates a new stack
+	/// It adds the Amount of the stack as well
+	/// </summary>
+	/// <param name="item"></param>
+	public void Remove(ItemStack item)
+	{
+		var iStack = FindStack(item);
+
+		if(iStack)
+		{
+			iStack.Amount -= item.Amount;
+		}
 	}
 
 	/// <summary>
