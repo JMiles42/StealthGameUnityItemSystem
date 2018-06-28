@@ -98,13 +98,16 @@ public class Inventory: ScriptableObject
 	/// Adds the item stack to the existing stack, or creates a new stack
 	/// </summary>
 	/// <param name="item"></param>
-	public void Remove(Item item)
+	public void Remove(Item item, bool ignoreEmptyCheck = false)
 	{
 		var iStack = FindStack(item);
 
 		if(iStack)
 		{
 			iStack--;
+
+			if(ignoreEmptyCheck)
+				return;
 
 			if(iStack.Amount <= 0)
 				items.Remove(iStack);
@@ -116,13 +119,16 @@ public class Inventory: ScriptableObject
 	/// </summary>
 	/// <param name="item"></param>
 	/// <param name="amount"></param>
-	public void Remove(Item item, int amount)
+	public void Remove(Item item, int amount, bool ignoreEmptyCheck = false)
 	{
 		var iStack = FindStack(item);
 
 		if(iStack)
 		{
 			iStack.Amount -= amount;
+
+			if(ignoreEmptyCheck)
+				return;
 
 			if(iStack.Amount <= 0)
 				items.Remove(iStack);
@@ -134,13 +140,16 @@ public class Inventory: ScriptableObject
 	/// It adds the Amount of the stack as well
 	/// </summary>
 	/// <param name="item"></param>
-	public void Remove(ItemStack item)
+	public void Remove(ItemStack item, bool ignoreEmptyCheck = false)
 	{
 		var iStack = FindStack(item);
 
 		if(iStack)
 		{
 			iStack.Amount -= item.Amount;
+
+			if(ignoreEmptyCheck)
+				return;
 
 			if(iStack.Amount <= 0)
 				items.Remove(iStack);
