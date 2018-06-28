@@ -1,0 +1,3 @@
+[submodule "FoCs Lib Run With It"]
+	path = Assets/Plugins/FoCs
+	url = https://github.com/JMiles42/FoCs-Lib_Run-With-It.git
