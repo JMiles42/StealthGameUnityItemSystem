@@ -1,16 +1,19 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class Item : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+[CreateAssetMenu(fileName = "New Item", menuName = "Item System/New Item", order = 0)]
+public class Item: ScriptableObject
+{
+	//*==================================================================================*//
+	//WARNING:If you add anymore data, it won't be reflected in the Item Browser
+	//But it will show up on the Inspector
+	//*==================================================================================*//
+	public string  Name;
+	public string  Description;
+	public Texture Icon;
+	public int     Cost = 10;
+	public bool    ShowInInventory = true;
+	//*==================================================================================*//
+	//WARNING:If you add anymore data, it won't be reflected in the Item Browser
+	//But it will show up on the Inspector
+	//*==================================================================================*//
 }
