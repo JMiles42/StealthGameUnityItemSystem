@@ -1,6 +1,8 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using ForestOfChaosLib.Editor;
+using UnityEditor;
 
-public class ItemEditor : MonoBehaviour {
+namespace JMiles42.ItemSystem
+{
+	[CustomEditor(typeof(Item))]
+	public class ItemEditor: FoCsEditor { }
 }
